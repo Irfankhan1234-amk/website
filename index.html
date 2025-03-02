@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Website</title>
+    <title>Esports Hub</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             text-align: center;
-            background: linear-gradient(to right, #1e3c72, #2a5298);
-            color: white;
+            background: linear-gradient(to right, #000428, #004e92);
+            color: #00ffcc;
             margin: 0;
             padding: 0;
         }
@@ -18,15 +19,14 @@
             width: 50%;
             margin: auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(0, 0, 0, 0.7);
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 255, 204, 0.6);
             margin-top: 30px;
-            transition: all 0.3s ease-in-out;
         }
         h2 {
             font-size: 28px;
-            margin-bottom: 15px;
+            color: #ffcc00;
         }
         input {
             display: block;
@@ -57,7 +57,7 @@
         .menu {
             margin-bottom: 20px;
             padding: 15px;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.9);
             border-radius: 8px;
         }
         .menu button {
@@ -88,38 +88,38 @@
     </div>
 
     <div id="home" class="container">
-        <h2>Welcome to My Beautiful Website</h2>
-        <p><strong>Name:</strong> MD IRFAN HOSSAIN</p>
+        <h2>Welcome to the Esports Hub</h2>
+        <p><strong>Player:</strong> MD IRFAN HOSSAIN</p>
         <p><strong>Email:</strong> mhossain@gitam.in</p>
         <p><strong>Section:</strong> D</p>
         <p><strong>Branch:</strong> CSE Core</p>
         <p><strong>Year:</strong> 2nd Year</p>
-        <a href="#" target="_blank">View Resume</a>
+        <a href="#" target="_blank">View Player Profile</a>
         <button onclick="logout()">Logout</button>
     </div>
 
     <div id="register" class="container" style="display: none;">
-        <h2>Register Here</h2>
-        <input type="text" id="name" placeholder="Name" required>
+        <h2>Join the Squad</h2>
+        <input type="text" id="name" placeholder="Gamer Tag" required>
         <input type="text" id="department" placeholder="Department" required>
         <input type="text" id="year" placeholder="Year" required>
         <input type="text" id="section" placeholder="Section" required>
         <input type="password" id="password" placeholder="Password" required>
         <input type="password" id="confirm_password" placeholder="Confirm Password" required>
         <button onclick="register()">Register</button>
-        <button onclick="downloadExcel()">Download Excel</button>
+        <button onclick="downloadExcel()">Download Player Data</button>
     </div>
 
     <div id="login" class="container" style="display: none;">
-        <h2>Login Here</h2>
-        <input type="text" id="login_username" placeholder="Name" required>
+        <h2>Login to the Arena</h2>
+        <input type="text" id="login_username" placeholder="Gamer Tag" required>
         <input type="password" id="login_password" placeholder="Password" required>
         <input type="file" id="uploadExcel" accept=".xlsx" onchange="loadExcel()" required>
-        <button onclick="login()">Login</button>
+        <button onclick="login()">Enter</button>
     </div>
 
     <div id="exit" class="container" style="display: none;">
-        <h2>Thank You for Visiting!</h2>
+        <h2>Game Over! Thanks for Visiting!</h2>
     </div>
 
     <script>
@@ -143,7 +143,7 @@
             }
 
             users.push({ Name: name, Password: password });
-            alert('Registration Successful!');
+            alert('Welcome to the Squad!');
             showPage('login', document.querySelector(".menu button:nth-child(3)"));
         }
 
@@ -152,7 +152,7 @@
             let password = document.getElementById('login_password').value;
             let user = users.find(u => u.Name === username && u.Password === password);
             if (user) {
-                alert('Login Successful!');
+                alert('Access Granted! Welcome to the Arena!');
                 showPage('home', document.querySelector(".menu button:nth-child(1)"));
             } else {
                 alert('Invalid Credentials');
